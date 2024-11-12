@@ -1,11 +1,16 @@
 import React from "react"
+import SideBar from "./Components/SideBar"
+import Main from "./Components/Main"
 
 export function App() {
   
 
   return (
     <>
-      <h1 className="text-red-600 text-center m-2">hello</h1>
+      <div className="flex">
+        <SideBar/>
+        <Main/>
+      </div>
      
     </>
   )
