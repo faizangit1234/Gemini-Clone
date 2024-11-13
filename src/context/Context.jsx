@@ -15,6 +15,8 @@ const ContextProvider = (props) => {
     const [resultData, setResultData] = useState("")
 
 
+
+
     const onSent = async (prompt) => {
         setResultData("")
         setLoading(true)
@@ -22,6 +24,8 @@ const ContextProvider = (props) => {
         setRecentPrompt(input)
 
         const response = await run(prompt)
+
+        
 
         setResultData(response)
         setLoading(false)
