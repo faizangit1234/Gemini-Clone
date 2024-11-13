@@ -1,12 +1,27 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { FaCompass, FaNodeJs, FaRegUserCircle } from 'react-icons/fa'
 import { TiWeatherSunny } from "react-icons/ti";
 import { GoGoal } from "react-icons/go";
 import { MdOutlineAddPhotoAlternate } from "react-icons/md";
 import { GrMicrophone } from "react-icons/gr";
 import { VscSend } from "react-icons/vsc";
+import { Context } from '../context/Context';
 
 const Main = () => {
+    const {
+        input,
+        setInput,
+        recentPrompt,
+        setRecentPrompt,
+        prevPrompt,
+        setPrevPrompt,
+        showResult,
+        loading,
+        resultData,
+        onSent,
+
+    } = useContext(Context)
+
     return (
         <div className=' flex-1 min-h-screen pb-[15vh] relative '>
             <div className='flex text-xl p-5 text-slate-700 justify-between'>
@@ -53,12 +68,14 @@ const Main = () => {
 
                 <div className="absolute bottom-0 w-full max-w-[900px] px-5 mx-auto">
                     <div className="flex items-center justify-between gap-20 bg-gray-200 py-2 px-5 rounded-full">
-                        <input className='flex-1 bg-transparent border-none outline-none p-2 text-lg' type='text' placeholder='Ask Gemini' />
+                        <input className='flex-1 bg-transparent border-none outline-none p-2 text-lg' type='text' value={input} onChange={(e)=>setInput(e.target.value)} placeholder='Ask Gemini' />
 
                         <div className="flex gap-4 items-center">
                             <MdOutlineAddPhotoAlternate className='text-xl cursor-pointer' />
                             <GrMicrophone className='text-xl cursor-pointer' />
-                            <VscSend className='text-xl cursor-pointer' />
+                            <VscSend className='text-xl cursor-pointer' onClick={()=>{
+                                onSent(input)
+                            }} />
                         </div>
 
                     </div>
