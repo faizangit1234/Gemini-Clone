@@ -41,7 +41,7 @@ const Main = () => {
                     <div className='h-[200px] p-4 bg-gray-200 rounded-lg relative cursor-pointer hover:bg-gray-300'>
                         <p className='text-slate-700 text-lg'>What's the weather like today?</p>
 
-                        <TiWeatherSunny  className='text-2xl absolute bottom-2 right-3' />
+                        <TiWeatherSunny className='text-2xl absolute bottom-2 right-3' />
                     </div>
 
                     <div className='h-[200px] p-4 bg-gray-200 rounded-lg relative cursor-pointer hover:bg-gray-300'>
@@ -53,12 +53,12 @@ const Main = () => {
 
                 <div className="absolute bottom-0 w-full max-w-[900px] px-5 mx-auto">
                     <div className="flex items-center justify-between gap-20 bg-gray-200 py-2 px-5 rounded-full">
-                        <input className='flex-1 bg-transparent border-none outline-none p-2 text-lg' type='text' placeholder='Ask Gemini'/>
+                        <input className='flex-1 bg-transparent border-none outline-none p-2 text-lg' type='text' placeholder='Ask Gemini' />
 
                         <div className="flex gap-4 items-center">
-                          <MdOutlineAddPhotoAlternate className='text-xl cursor-pointer' />
-                          <GrMicrophone className='text-xl cursor-pointer' />
-                          <VscSend className='text-xl cursor-pointer' />
+                            <MdOutlineAddPhotoAlternate className='text-xl cursor-pointer' />
+                            <GrMicrophone className='text-xl cursor-pointer' />
+                            <VscSend className='text-xl cursor-pointer' />
                         </div>
 
                     </div>
