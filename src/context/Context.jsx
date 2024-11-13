@@ -7,19 +7,29 @@ export const Context = createContext()
 
 const ContextProvider = (props) => {
     // creating states
-    const [input,setInput]=useState("")
-    const [recentPrompt,setRecentPrompt]=useState("")
-    const [prevPrompt,setPrevPrompt]=useState([])
-    const [showResult,setShowResult]=useState(false)
-    const [loading,setLoading]=useState(false)
-    const [resultData,setResultData]=useState("")
+    const [input, setInput] = useState("")
+    const [recentPrompt, setRecentPrompt] = useState("")
+    const [prevPrompt, setPrevPrompt] = useState([])
+    const [showResult, setShowResult] = useState(false)
+    const [loading, setLoading] = useState(false)
+    const [resultData, setResultData] = useState("")
 
 
     const onSent = async (prompt) => {
-        await run(prompt)
+        setResultData("")
+        setLoading(true)
+        setShowResult(true)
+        setRecentPrompt(input)
+
+        const response = await run(prompt)
+
+        setResultData(response)
+        setLoading(false)
+        setInput("")
+
     }
 
-    
+
 
     const contextValue = {
         input,

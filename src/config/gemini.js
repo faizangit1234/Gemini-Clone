@@ -29,6 +29,8 @@ import {
     const result = await chatSession.sendMessage(prompt);
     const response= result.response.text()
     console.log(result.response.text());
+    
+    return response
   }
   
   export default run
