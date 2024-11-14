@@ -82,12 +82,12 @@ const Main = () => {
                             {/* loading effect */}
                             {loading ?
                                 <div className='w-full flex flex-col gap-2'>
-                                  <hr className='rounded-md border-none bg-gray-200 bg-gradient-to-r from-[#81cafe] via-[#ffff] to-[#81cafe] p-4 animate-scroll-bg'/>
-                                  <hr className='rounded-md border-none bg-gray-200 bg-gradient-to-r from-[#81cafe] via-[#ffff] to-[#81cafe] p-4 animate-scroll-bg'/>
-                                  <hr className='rounded-md border-none bg-gray-200 bg-gradient-to-r from-[#81cafe] via-[#ffff] to-[#81cafe] p-4 animate-scroll-bg'/>
+                                    <hr className='rounded-md border-none bg-gray-200 bg-gradient-to-r from-[#81cafe] via-[#ffff] to-[#81cafe] p-4 animate-scroll-bg' />
+                                    <hr className='rounded-md border-none bg-gray-200 bg-gradient-to-r from-[#81cafe] via-[#ffff] to-[#81cafe] p-4 animate-scroll-bg' />
+                                    <hr className='rounded-md border-none bg-gray-200 bg-gradient-to-r from-[#81cafe] via-[#ffff] to-[#81cafe] p-4 animate-scroll-bg' />
                                 </div>
                                 :
-                                <p className='text-lg font-[400] leading[1.8]'>{resultData}</p>
+                                <p dangerouslySetInnerHTML={{ __html: resultData }} className='text-lg font-[400] leading[1.8]'></p>
                             }
 
                         </div>
@@ -103,7 +103,7 @@ const Main = () => {
                             <MdOutlineAddPhotoAlternate className='text-xl cursor-pointer' />
                             <GrMicrophone className='text-xl cursor-pointer' />
                             <VscSend className='text-xl cursor-pointer' onClick={() => {
-                                onSent(input)
+                                onSent()
                             }} />
                         </div>
 
