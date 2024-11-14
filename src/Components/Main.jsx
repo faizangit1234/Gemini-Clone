@@ -102,9 +102,11 @@ const Main = () => {
                         <div className="flex gap-4 items-center">
                             <MdOutlineAddPhotoAlternate className='text-xl cursor-pointer' />
                             <GrMicrophone className='text-xl cursor-pointer' />
-                            <VscSend className='text-xl cursor-pointer' onClick={() => {
-                                onSent()
-                            }} />
+                            {input && (
+                                <VscSend className='text-xl cursor-pointer animate-fadeIn duration 1000' onClick={() => {
+                                    onSent()
+                                }} />
+                            )}
                         </div>
 
                     </div>

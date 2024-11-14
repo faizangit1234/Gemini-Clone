@@ -8,7 +8,7 @@ import { Context } from '../context/Context';
 
 const SideBar = () => {
     const [extended, setExtended] = useState(false)
-    const { onSent, prevPrompt, setRecentPrompt } = useContext(Context)
+    const { onSent, prevPrompt, setRecentPrompt, newChat } = useContext(Context)
     const loadPrompt = async (prompt) => {
 
         setRecentPrompt(prompt)
@@ -17,30 +17,32 @@ const SideBar = () => {
 
     }
     return (
-        <div className='min-h-screen inline-flex flex-col justify-between bg-[#a5a8ad] py-[25px] px-[15px] '>
+        <div className='min-h-screen inline-flex flex-col justify-between bg-[#d9dadc] py-[25px] px-[15px] '>
             <div className=''>
                 <IoMenu className='text-2xl block cursor-pointer' onClick={() => setExtended(!extended)} />
-                <div className='inline-flex mt-2 items-center gap-2 py-2 px-4 text-[14px] rounded-full bg-[#c5bfbf] cursor-pointer text-gray-500'>
+                <div onClick={() => newChat()} className='inline-flex mt-2 items-center gap-2 py-2 px-4 text-[14px] rounded-full bg-[#c5bfbf] cursor-pointer text-gray-500'>
                     <FaPlus />
                     {extended && <p>New Chat</p>}
                 </div>
-                <div className='flex flex-col'>
-                    <p className='mt-7 mb-5'>Recent</p>
-                    {/* adding condition for recentPrompt */}
-                    {prevPrompt?.map((item, index) => {
-                        return (
-                            <div onClick={() => loadPrompt(item)} className='inline-flex items-center gap-4 my-2 p-2 pr-10 rounded-[50px] cursor-pointer text-slate-800 hover:bg-gray-400'>
-                                <FiMessageSquare />
-                                {extended && <p>{item.slice(0, 18)}...</p>}
-                            </div>
-                        )
-                    })}
+                {extended && (
+                    <div className='flex flex-col animate-fadeIn duration 1000'>
+                        <p className='mt-7 mb-5'>Recent</p>
+                        {/* adding condition for recentPrompt */}
+                        {prevPrompt?.map((item, index) => {
+                            return (
+                                <div onClick={() => loadPrompt(item)} className='inline-flex items-center gap-4 my-2 p-2 pr-10 rounded-[50px] cursor-pointer text-slate-800 hover:bg-gray-400'>
+                                    <FiMessageSquare />
+                                    {extended && <p>{item.slice(0, 18)}...</p>}
+                                </div>
+                            )
+                        })}
 
-                    {/* <div className='inline-flex items-center gap-4 my-2 p-2 pr-10 rounded-[50px] cursor-pointer text-slate-800 hover:bg-gray-400'>
+                        {/* <div className='inline-flex items-center gap-4 my-2 p-2 pr-10 rounded-[50px] cursor-pointer text-slate-800 hover:bg-gray-400'>
                         <FiMessageSquare />
                         {extended && <p>A Friendly Greeting</p>}
                     </div> */}
-                </div>
+                    </div>
+                )}
             </div>
             {/* another bottom fiv */}
             <div className='flex flex-col'>
